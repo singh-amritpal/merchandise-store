@@ -1,4 +1,4 @@
-import mongoose from "mongoose";           
+import mongoose from "mongoose";
 
 const { ObjectId } = mongoose.Schema;
 
@@ -28,6 +28,11 @@ const orderSchema = new mongoose.Schema({
     },
     address: {
         type: String
+    },
+    status: {
+        type: String,
+        default: "Received",
+        enum: ["Cancelled", "Delivered", "Shipped", "Processing", "Received"]
     },
     updated: {
         type: Date
