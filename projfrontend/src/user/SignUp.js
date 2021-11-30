@@ -38,7 +38,7 @@ const SignUp = () => {
                     })
                 }
             })
-            .catch(console.log("Unable to Sign Up"));
+            .catch(console.log("UNABLE TO SIGN UP"));
     }
 
     const signUpForm = () => {

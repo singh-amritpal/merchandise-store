@@ -35,17 +35,17 @@ const SignIn = () => {
                     })
                 }
             })
-            .catch(console.log("Unable to Sign In"));
+            .catch(console.log("UNABLE TO SIGN IN"));
     }
 
     const performRedirect = () => {
-        //TODO: do a redirection here
+
         if (didRedirect) {
             if (user && user.role === 1) {
-                return <p>Redirect to Admin</p>
+                return <Redirect to="/admin/dashboard" />
             }
             else {
-                return <p>Redirect to User</p>
+                return <Redirect to="/user/dashboard" />
             }
         }
         if (isAuthenticated()) {

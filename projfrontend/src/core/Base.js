@@ -10,7 +10,7 @@ const Base = ({ title = "My Title", description = "My Description", className = 
                     <h2 className="display-4">{title}</h2>
                     <p className="lead">{description}</p>
                 </div>
-                <div className="className">{children}</div>
+                <div className={className}>{children}</div>
             </div>
             <footer className="footer bg-dark mt-auto py-3">
                 <div className="container-fluid bg-success text-white text-center py-3">
