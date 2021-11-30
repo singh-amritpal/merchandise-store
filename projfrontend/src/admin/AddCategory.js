@@ -44,13 +44,29 @@ const AddCategory = () => {
 
     const successMessage = () => {
         if (success) {
-            return <h4 className="text-success">New category created successfully</h4>
+            return (
+                <div className="row" >
+                    <div className="col-md-6 offset-sm-3 text-center mt-3">
+                        <div className="alert alert-success" role="alert" style={{ display: success ? "" : "none" }}>
+                            New category created successfully
+                        </div>
+                    </div>
+                </div>
+            );
         }
     }
 
     const errorMessage = () => {
         if (error) {
-            return <h4 className="text-success">Failed to create category</h4>
+            return (
+                <div className="row" >
+                    <div className="col-md-6 offset-sm-3 text-center mt-3">
+                        <div className="alert alert-danger" role="alert" style={{ display: success ? "" : "none" }}>
+                            Failed to create category
+                        </div>
+                    </div>
+                </div>
+            );
         }
     }
 
