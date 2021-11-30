@@ -1,7 +1,6 @@
 import React from 'react';
 import Navigation from './Navigation';
 
-
 const Base = ({ title = "My Title", description = "My Description", className = "bg-dark text-white p-4", children }) => {
     return (
         <div>
