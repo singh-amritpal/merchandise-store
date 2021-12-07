@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { isAuthenticated } from '../auth/helper';
+import { API } from '../backend';
 import Base from '../core/Base';
 import { deleteProduct, getProducts } from './helper/adminapicall';
 
@@ -44,12 +45,13 @@ const ManageProducts = () => {
         <div>
             <Base title="Welcome Admin" description="Manage Products" className="container bg-white p-4">
                 {goBack()}
-                <div id="card-div" className="row">
+                <div id="card-div" className="row card-div">
                     {
                         products?.map((product, index) => {
                             return (
                                 <div key={index} className="col-12  col-lg-4 text-center mb-2 ">
                                     <div class="card shadow-sm p-3 mb-5 bg-white rounded" style={{ width: "100%" }}>
+                                        <img src={`${API}/product/photo/${product._id}`} alt="sample" style={{ maxHeight: "100%", maxWidth: "100%" }} className="mb-3 rounded" />
                                         <div class="card-body">
                                             <h5 class="card-title">{product.name}</h5>
                                             <p class="card-text">{product.description}</p>
