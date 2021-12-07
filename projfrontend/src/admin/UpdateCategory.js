@@ -110,7 +110,7 @@ const UpdateCategory = ({ match }) => {
     const createProductForm = () => (
         <form >
             <div className="form-group mb-3">
-                <label for="Name">Category Name</label>
+                <label htmlFor="Name">Category Name</label>
                 <input onChange={handleChange("name")} name="Name" className="form-control" placeholder="Name" value={name} />
             </div>
 

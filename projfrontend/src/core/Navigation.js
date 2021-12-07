@@ -23,14 +23,14 @@ const Navigation = ({ history }) => (
             {
                 isAuthenticated() && isAuthenticated().user.role === 0 && (
                     <li className="nav-item">
-                        <Link className="nav-link" to="/user/dashboard" style={currentTab(history, "/user/dashboard")}>U. Dashboard</Link>
+                        <Link className="nav-link" to="/user/dashboard" style={currentTab(history, "/user/dashboard")}>Dashboard</Link>
                     </li>
                 )
             }
             {
                 isAuthenticated() && isAuthenticated().user.role === 1 && (
                     <li className="nav-item">
-                        <Link className="nav-link" to="/admin/dashboard" style={currentTab(history, "/admin/dashboard")}>A. Dashboard</Link>
+                        <Link className="nav-link" to="/admin/dashboard" style={currentTab(history, "/admin/dashboard")}>Dashboard</Link>
                     </li>
                 )
             }

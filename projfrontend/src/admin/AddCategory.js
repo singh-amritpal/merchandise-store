@@ -73,7 +73,7 @@ const AddCategory = () => {
     const categoryForm = () => (
         <form action="">
             <div className="form-group">
-                <label for="categoryName" className="mt-3">Enter the Category</label>
+                <label htmlFor="categoryName" className="mt-3">Enter the Category</label>
                 <input type="text" className="form-control my-3" name="categoryName" onChange={handleChange} value={name} autoFocus required placeholder="ex. Summer" />
                 <button className="btn btn-outline-success mb-3" onClick={onSubmit}>Create Category</button>
             </div>

@@ -30,7 +30,7 @@ const Card = ({ product, addToCart = true, removeFromCart = false }) => {
     }
 
     return (
-        <div class="card text-dark shadow-sm p-3 mb-5 bg-white rounded" style={{ width: "100%" }}>
+        <div class="card text-dark shadow-sm p-3 mb-3 bg-white rounded" style={{ width: "100%" }}>
             <h5 class="card-title">{cardTitle}</h5>
             <ImageHelper product={product} />
             <div className="card-body">

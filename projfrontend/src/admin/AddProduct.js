@@ -123,22 +123,22 @@ const AddProduct = () => {
             </div>
 
             <div className="form-group mb-3">
-                <label for="productName">Product Name</label>
+                <label htmlFor="productName">Product Name</label>
                 <input onChange={handleChange("name")} name="productName" className="form-control" placeholder="Name" value={name} />
             </div>
 
             <div className="form-group mb-3">
-                <label for="description">Product Description</label>
+                <label htmlFor="description">Product Description</label>
                 <textarea onChange={handleChange("description")} name="description" className="form-control" placeholder="Description" value={description} />
             </div>
 
             <div className="form-group mb-3">
-                <label for="price">Price</label>
+                <label htmlFor="price">Price</label>
                 <input onChange={handleChange("price")} type="number" name="price" className="form-control" placeholder="Price" value={price} />
             </div>
 
             <div className="form-group mb-3">
-                <label for="categories">Product Category</label>
+                <label htmlFor="categories">Product Category</label>
                 <select onChange={handleChange("category")} name="categories" className="form-control" placeholder="Category">
                     <option>Select</option>
                     {categories && categories.map((category, index) => {
@@ -148,7 +148,7 @@ const AddProduct = () => {
             </div>
 
             <div className="form-group mb-3">
-                <label for="availableUnits">Available Units</label>
+                <label htmlFor="availableUnits">Available Units</label>
                 <input onChange={handleChange("availableUnits")} name="availableUnits" type="number" className="form-control" placeholder="Quantity" value={availableUnits} />
             </div>
 

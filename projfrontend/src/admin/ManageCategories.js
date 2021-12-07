@@ -44,12 +44,12 @@ const ManageCategories = () => {
         <div>
             <Base title="Welcome Admin" description="Manage Categories" className="container bg-white p-4">
                 {goBack()}
-                <div id="card-div" className="row">
+                <div id="card-div" className="row card-div">
                     {
                         categories?.map((category, index) => {
                             return (
                                 <div key={index} className="col-12 col-lg-4 text-center mb-2">
-                                    <div class="card shadow-sm p-3 mb-5 bg-white rounded" style={{ width: "100%" }}>
+                                    <div class="card shadow-sm p-3 mb-3 bg-white rounded" style={{ width: "100%" }}>
                                         <div class="card-body">
                                             <h5 class="card-title">{category.name}</h5>
                                         </div>

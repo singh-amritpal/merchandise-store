@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 
 const Base = ({ title = "My Title", description = "My Description", className = "bg-dark text-white p-4", children }) => {
@@ -12,10 +13,12 @@ const Base = ({ title = "My Title", description = "My Description", className = 
                 </div>
                 <div className={className}>{children}</div>
             </div>
-            <footer className="footer bg-dark mt-auto py-3">
+            <footer className="footer bg-dark mt-auto py-2">
                 <div className="container-fluid bg-success text-white text-center py-3">
-                    <h4>If you got any questions, feel free to reach out!</h4>
-                    <button className="btn btn-warning btn-lg">Contact Us</button>
+                    <h5>If you got any questions, feel free to reach out!</h5>
+                    <Link to={`/contactus`} className="btn btn-dark card-link rounded">
+                        Contact Us
+                    </Link>
                 </div>
                 <div className="container text-center">
                     <span className="text-muted" >
