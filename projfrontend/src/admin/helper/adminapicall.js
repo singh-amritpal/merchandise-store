@@ -75,8 +75,9 @@ export const updateProduct = (productId, userId, token, product) => {
 
 //Delete A Product
 export const deleteProduct = (productId, userId, token) => {
-    return fetch(`$${API}/product/${productId}/${userId}`, {
+    return fetch(`${API}/product/${productId}/${userId}`, {
         method: "DELETE",
+        mode: 'cors',
         headers: {
             Accept: "application/json",
             Authorization: `Bearer ${token}`
