@@ -114,28 +114,32 @@ const AddProduct = () => {
 
     const createProductForm = () => (
         <form >
-            <span>Post photo</span>
+            <span>Product Photo</span>
 
             <div className="form-group mb-3">
-                <label className="btn btn-block btn-success">
+                <label className="btn btn-block text-white">
                     <input onChange={handleChange("photo")} type="file" name="photo" accept="image" placeholder="choose a file" />
                 </label>
             </div>
 
             <div className="form-group mb-3">
-                <input onChange={handleChange("name")} name="photo" className="form-control" placeholder="Name" value={name} />
+                <label for="productName">Product Name</label>
+                <input onChange={handleChange("name")} name="productName" className="form-control" placeholder="Name" value={name} />
             </div>
 
             <div className="form-group mb-3">
-                <textarea onChange={handleChange("description")} name="photo" className="form-control" placeholder="Description" value={description} />
+                <label for="description">Product Description</label>
+                <textarea onChange={handleChange("description")} name="description" className="form-control" placeholder="Description" value={description} />
             </div>
 
             <div className="form-group mb-3">
-                <input onChange={handleChange("price")} type="number" className="form-control" placeholder="Price" value={price} />
+                <label for="price">Price</label>
+                <input onChange={handleChange("price")} type="number" name="price" className="form-control" placeholder="Price" value={price} />
             </div>
 
             <div className="form-group mb-3">
-                <select onChange={handleChange("category")} className="form-control" placeholder="Category">
+                <label for="categories">Product Category</label>
+                <select onChange={handleChange("category")} name="categories" className="form-control" placeholder="Category">
                     <option>Select</option>
                     {categories && categories.map((category, index) => {
                         return (<option key={index} value={category._id}>{category.name}</option>)
@@ -144,7 +148,8 @@ const AddProduct = () => {
             </div>
 
             <div className="form-group mb-3">
-                <input onChange={handleChange("availableUnits")} type="number" className="form-control" placeholder="Quantity" value={availableUnits} />
+                <label for="availableUnits">Available Units</label>
+                <input onChange={handleChange("availableUnits")} name="availableUnits" type="number" className="form-control" placeholder="Quantity" value={availableUnits} />
             </div>
 
             <button type="submit" onClick={onSubmit} className="btn btn-outline-success mb-3">
@@ -154,7 +159,7 @@ const AddProduct = () => {
     );
 
     return (
-        <Base title="Add a New Product" description="Add a new product here" className="container bg-info p-4">
+        <Base title="Add a New Product" description="Add a new product here" className="container bg-white p-4">
             {goBack()}
             <div className="row bg-dark text-white rounded">
                 <div className="col-md-8 offset-md-2">

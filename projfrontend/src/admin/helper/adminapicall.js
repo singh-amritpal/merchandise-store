@@ -16,10 +16,48 @@ export const createCategory = (userId, token, category) => {
     }).catch(err => console.log(err));
 }
 
+//Get A Single Category
+export const getCategory = (categoryId) => {
+    return fetch(`${API}/category/${categoryId}`, {
+        method: "GET"
+    }).then(res => {
+        return res.json();
+    }).catch(err => console.log(err));
+}
+
 //Get All Categories
 export const getCategories = () => {
     return fetch(`${API}/categories`, {
         method: "GET"
+    }).then(res => {
+        return res.json();
+    }).catch(err => console.log(err));
+}
+
+//Update A Category
+export const updateCategory = (categoryId, userId, token, category) => {
+    return fetch(`${API}/category/${categoryId}/${userId}`, {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: category
+    }).then(res => {
+        return res.json();
+    }).catch(err => console.log(err));
+}
+
+//Delete A Category
+export const deleteCategory = (categoryId, userId, token) => {
+    return fetch(`${API}/category/${categoryId}/${userId}`, {
+        method: "DELETE",
+        mode: 'cors',
+        headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`
+        }
     }).then(res => {
         return res.json();
     }).catch(err => console.log(err));

@@ -10,6 +10,12 @@ const ManageProducts = () => {
 
     const { user, authToken } = isAuthenticated();
 
+    const goBack = () => (
+        <div className="mt-3">
+            <Link className="btn btn-sm btn-dark mb-3" to="/admin/dashboard">Admin Home</Link>
+        </div>
+    )
+
     const preload = () => {
         getProducts().then(data => {
             if (data.error) {
@@ -36,40 +42,34 @@ const ManageProducts = () => {
 
     return (
         <div>
-            <Base title="Welcome admin" description="Manage products here">
-                <Link className="btn btn-info" to={`/admin/dashboard`}>
-                    <span className="">Admin Home</span>
-                </Link>
-                <h2 className="mb-4">All products:</h2>
-                <div className="row">
-                    <div className="col-12">
-                        <h2 className="text-center text-white my-3">Total 3 products</h2>
-                        {
-                            products?.map((product, index) => {
-                                return (
-                                    <div key={index} className="row text-center mb-2 ">
-                                        <div className="col-4">
-                                            <h3 className="text-white text-left">{product.name}</h3>
+            <Base title="Welcome Admin" description="Manage Products" className="container bg-white p-4">
+                {goBack()}
+                <div id="card-div" className="row">
+                    {
+                        products?.map((product, index) => {
+                            return (
+                                <div key={index} className="col-12  col-lg-4 text-center mb-2 ">
+                                    <div class="card shadow-sm p-3 mb-5 bg-white rounded" style={{ width: "100%" }}>
+                                        <div class="card-body">
+                                            <h5 class="card-title">{product.name}</h5>
+                                            <p class="card-text">{product.description}</p>
                                         </div>
+                                        <div class="card-body">
+                                            <Link to={`/admin/product/update/${product._id}`} className="btn btn-outline-primary card-link">
+                                                Update
+                                            </Link>
 
-                                        <div className="col-4">
-                                            <Link className="btn btn-success" to={`/admin/product/update/${product._id}`} >
-                                                <span className="">Update</span>
+                                            <Link to="/admin/products" onClick={() => {
+                                                deleteAProduct(product._id)
+                                            }} className="btn btn-outline-danger card-link">
+                                                Delete
                                             </Link>
                                         </div>
-
-                                        <div className="col-4">
-                                            <button onClick={() => {
-                                                deleteAProduct(product._id)
-                                            }} className="btn btn-danger">
-                                                Delete
-                                            </button>
-                                        </div>
                                     </div>
-                                )
-                            })
-                        }
-                    </div>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </Base>
         </div>
