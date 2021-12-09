@@ -15,6 +15,7 @@ import ManageProducts from './admin/ManageProducts';
 import UpdateProduct from './admin/UpdateProduct';
 import UpdateCategory from './admin/UpdateCategory';
 import Cart from './core/Cart';
+import UploadCSVProducts from './admin/UploadCSVProducts';
 
 const Routes = () => {
     return (
@@ -33,6 +34,7 @@ const Routes = () => {
                 <AdminRoute exact path="/admin/products" component={ManageProducts} />
                 <AdminRoute exact path="/admin/product/update/:productId" component={UpdateProduct} />
                 <AdminRoute exact path="/admin/category/update/:categoryId" component={UpdateCategory} />
+                <AdminRoute exact path="/admin/upload/products" component={UploadCSVProducts} />
             </Switch>
         </Router>
     )

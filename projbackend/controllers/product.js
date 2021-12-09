@@ -97,6 +97,10 @@ export function createProduct(req, res) {
     });
 }
 
+export function uploadCSVProduct(req, res) {
+
+}
+
 export function updateProduct(req, res) {
     let form = new formidable.IncomingForm();
     form.keepExtensions = true;

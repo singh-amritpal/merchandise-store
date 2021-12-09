@@ -36,7 +36,7 @@ const UpdateProduct = ({ match }) => {
     const preload = (productId) => {
         getProduct(productId).then(data => {
             //console.log(data)
-            if (data.error) {
+            if (data?.error) {
                 setValues({ ...values, error: data.error })
             } else {
                 setValues({
@@ -79,7 +79,7 @@ const UpdateProduct = ({ match }) => {
         updateProduct(match.params.productId, user._id, authToken, formData)
             .then(data => {
                 console.log(data)
-                if (data?.error) {
+                if (data.error) {
                     setValues({ ...values, error: data.error })
                 } else {
                     setValues({
@@ -183,7 +183,7 @@ const UpdateProduct = ({ match }) => {
     );
 
     return (
-        <Base title="Add a New Product" description="Add a new product here" className="container bg-white p-4">
+        <Base title="Update Product" description="Update Product Information" className="container bg-white p-4">
             {goBack()}
             <div className="row bg-dark text-white rounded">
                 <div className="col-md-8 offset-md-2">

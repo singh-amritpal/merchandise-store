@@ -78,6 +78,19 @@ export const createProduct = (userId, token, product) => {
     }).catch(err => console.log(err));
 }
 
+export const uploadCSVProducts = (userId, token, product) => {
+    return fetch(`${API}/product/upload/${userId}`, {
+        method: "POST",
+        headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: product
+    }).then(res => {
+        return res.json();
+    }).catch(err => console.log(err));
+}
+
 //Get All Products
 export const getProducts = () => {
     return fetch(`${API}/products`, {
@@ -100,9 +113,6 @@ export const getProduct = (productId) => {
 export const updateProduct = (productId, userId, token, product) => {
     return fetch(`${API}/product/${productId}/${userId}`, {
         method: "PUT",
-        mode: 'cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -111,6 +121,8 @@ export const updateProduct = (productId, userId, token, product) => {
         body: JSON.stringify(product)
     }).then(res => {
         return res.json();
+    }).then(data => {
+        console.log(data)
     }).catch(err => console.log(err));
 }
 

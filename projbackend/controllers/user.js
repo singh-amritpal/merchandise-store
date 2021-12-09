@@ -1,7 +1,6 @@
 import User from "../models/user.js";
 import Order from "../models/order.js";
 
-
 export function getUserById(req, res, next, id) {
     User.findById(id).exec((err, user) => {
         if (err || !user) {
