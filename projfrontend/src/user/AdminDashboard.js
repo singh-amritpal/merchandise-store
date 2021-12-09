@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { isAuthenticated } from '../auth/helper';
 import Base from '../core/Base';
 
-
 const AdminDashboard = () => {
 
     const {
@@ -57,7 +56,7 @@ const AdminDashboard = () => {
     }
 
     return (
-        <Base title="Welcome Admin!" description="Manage All Products Here" className="container bg-success p-4">
+        <Base title="Welcome Admin!" description="Manage All Products Here" className="container bg-white p-4">
             <div className="row">
                 <div className="col-3">{adminLeftSide()}</div>
                 <div className="col-9">{adminRightSide()}</div>

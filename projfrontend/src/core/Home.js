@@ -5,7 +5,7 @@ import Base from "./Base";
 import Card from "./Card";
 import { getAllProducts } from "./helper/coreapicalls";
 
-export default function Home() {
+const Home = () => {
 
     const [products, setProducts] = useState([]);
     const [error, setError] = useState(false);
@@ -44,3 +44,5 @@ export default function Home() {
         </Base>
     )
 }
+
+export default Home;

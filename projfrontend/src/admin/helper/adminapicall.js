@@ -43,7 +43,7 @@ export const updateCategory = (categoryId, userId, token, category) => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
-        body: category
+        body: JSON.stringify(category)
     }).then(res => {
         return res.json();
     }).catch(err => console.log(err));
@@ -100,12 +100,15 @@ export const getProduct = (productId) => {
 export const updateProduct = (productId, userId, token, product) => {
     return fetch(`${API}/product/${productId}/${userId}`, {
         method: "PUT",
+        mode: 'cors',
+        cache: 'no-cache',
+        credentials: 'same-origin',
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`
         },
-        body: product
+        body: JSON.stringify(product)
     }).then(res => {
         return res.json();
     }).catch(err => console.log(err));

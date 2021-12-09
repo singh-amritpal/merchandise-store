@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import { isAuthenticated } from '../auth/helper';
 import Base from '../core/Base';
@@ -19,7 +19,7 @@ const UpdateCategory = ({ match }) => {
         formData: ""
     })
 
-    const { name, description, price, availableUnits, categories, category, loading, error, updatedCategory, getARedirect, formData } = values;
+    const { name, loading, error, updatedCategory, getARedirect, formData } = values;
 
     const goBack = () => (
         <div className="mt-3">
@@ -65,7 +65,7 @@ const UpdateCategory = ({ match }) => {
                     });
                 }
             })
-            .catch("UNABLE TO UPDATE PRODUCT")
+            .catch("UNABLE TO UPDATE CATEGORY")
     }
 
     const handleChange = name => event => {
@@ -91,7 +91,7 @@ const UpdateCategory = ({ match }) => {
             <div className="row" >
                 <div className="col-md-6 offset-sm-3 text-center mt-3">
                     <div className="alert alert-danger" role="alert" style={{ display: error ? "" : "none" }}>
-                        Failed to Update Product
+                        Failed to Update Category
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@ const UpdateCategory = ({ match }) => {
     );
 
     return (
-        <Base title="Add a New Product" description="Add a new product here" className="container bg-info p-4">
+        <Base title="Add a New Product" description="Add a new product here" className="container bg-white p-4">
             {goBack()}
             <div className="row bg-dark text-white rounded">
                 <div className="col-md-8 offset-md-2">

@@ -50,13 +50,13 @@ const ManageProducts = () => {
                         products?.map((product, index) => {
                             return (
                                 <div key={index} className="col-12  col-lg-4 text-center mb-2 ">
-                                    <div class="card shadow-sm p-3 mb-3 bg-white rounded" style={{ width: "100%" }}>
+                                    <div className="card shadow-sm p-3 mb-3 bg-white rounded" style={{ width: "100%" }}>
                                         <img src={`${API}/product/photo/${product._id}`} alt="sample" style={{ maxHeight: "100%", maxWidth: "100%" }} className="mb-3 rounded" />
-                                        <div class="card-body">
-                                            <h5 class="card-title">{product.name}</h5>
-                                            <p class="card-text">{product.description}</p>
+                                        <div className="card-body">
+                                            <h5 className="card-title">{product.name}</h5>
+                                            <p className="card-text">{product.description}</p>
                                         </div>
-                                        <div class="card-body">
+                                        <div className="card-body">
                                             <Link to={`/admin/product/update/${product._id}`} className="btn btn-outline-primary card-link">
                                                 Update
                                             </Link>

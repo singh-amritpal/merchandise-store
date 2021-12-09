@@ -78,6 +78,7 @@ const UpdateProduct = ({ match }) => {
         //backend request fired
         updateProduct(match.params.productId, user._id, authToken, formData)
             .then(data => {
+                console.log(data)
                 if (data?.error) {
                     setValues({ ...values, error: data.error })
                 } else {

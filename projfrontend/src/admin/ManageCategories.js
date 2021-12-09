@@ -49,11 +49,11 @@ const ManageCategories = () => {
                         categories?.map((category, index) => {
                             return (
                                 <div key={index} className="col-12 col-lg-4 text-center mb-2">
-                                    <div class="card shadow-sm p-3 mb-3 bg-white rounded" style={{ width: "100%" }}>
-                                        <div class="card-body">
-                                            <h5 class="card-title">{category.name}</h5>
+                                    <div className="card shadow-sm p-3 mb-3 bg-white rounded" style={{ width: "100%" }}>
+                                        <div className="card-body">
+                                            <h5 className="card-title">{category.name}</h5>
                                         </div>
-                                        <div class="card-body">
+                                        <div className="card-body">
                                             <Link to={`/admin/category/update/${category._id}`} className="btn btn-outline-primary card-link">
                                                 Update
                                             </Link>
