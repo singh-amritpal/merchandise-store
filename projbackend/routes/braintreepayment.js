@@ -3,6 +3,7 @@ import { getUserById, pushOrderInPurchaseList } from '../controllers/user.js';
 import { isSignedIn, isAuthenticated } from '../controllers/authentication.js'
 import { updateStock } from '../controllers/product.js';
 import { getOrderById, createOrder, getAllOrders, getOrderStatus, updateStatus } from '../controllers/order.js';
+import { getToken, processPayment } from '../controllers/braintreepayment.js';
 
 var router = Router();
 
