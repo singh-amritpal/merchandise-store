@@ -1,8 +1,10 @@
 // importing dependencies
 import { } from "dotenv/config";
 import express from "express";
+import fileUpload from "express-fileupload";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import multer from "multer";
 import cors from "cors";
 import authRoutes from "./routes/authentication.js";
 import userRoutes from "./routes/user.js";
@@ -13,6 +15,16 @@ import braintreeRoute from "./routes/braintreepayment.js";
 //import stripeRoutes from "./routes/stripepayment.js";
 
 const app = express();
+
+var storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, './public/uploads')
+    }, filename: (req, file, cb) => {
+        cb(null, file.originalname)
+    }
+})
+
+var uploads = multer({ storage: storage })
 
 // setup the database and making the connection
 mongoose
@@ -30,6 +42,7 @@ mongoose
 
 //Middleswares
 app.use(express.json());
+app.use(fileUpload())
 app.use(cookieParser());
 app.use(cors());
 

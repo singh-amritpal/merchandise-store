@@ -56,7 +56,7 @@ const AddProduct = () => {
         //backend request fired
         createProduct(user._id, authToken, formData)
             .then(data => {
-                if (data.error) {
+                if (data?.error) {
                     setValues({ ...values, error: data.error })
                 } else {
                     setValues({

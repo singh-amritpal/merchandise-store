@@ -39,7 +39,7 @@ const UploadCSVProducts = () => {
         //backend request fired
         uploadCSVProducts(user._id, authToken, formData)
             .then(data => {
-                if (data.error) {
+                if (data?.error) {
                     setValues({ ...values, error: data.error })
                 } else {
                     setValues({
@@ -49,8 +49,7 @@ const UploadCSVProducts = () => {
                         price: "",
                         photo: "",
                         availableUnits: "",
-                        loading: false,
-                        createdProduct: data.product.name
+                        loading: false
                     });
                 }
             })
@@ -58,8 +57,7 @@ const UploadCSVProducts = () => {
     }
 
     const handleChange = name => event => {
-        const value = name === "photo" ? event.target.files[0] : event.target.value;
-        formData.set(name, value);
+        const value = name === "csv" ? event.target.files[0] : event.target.value;
         setValues({ ...values, [name]: value });
     }
 
@@ -68,7 +66,7 @@ const UploadCSVProducts = () => {
             <div className="row" >
                 <div className="col-md-6 offset-sm-3 text-center mt-3">
                     <div className="alert alert-success" role="alert" style={{ display: createdProduct ? "" : "none" }}>
-                        File "{createdProduct}" uploaded successfully
+                        File uploaded successfully
                     </div>
                 </div>
             </div>
@@ -91,7 +89,7 @@ const UploadCSVProducts = () => {
         <form >
             <div className="form-group mb-3 bg-white rounded">
                 <label className="btn btn-block">
-                    <input onChange={handleChange("photo")} type="file" name="photo" accept="image" placeholder="choose a file" />
+                    <input onChange={handleChange("csv")} type="file" name="photo" accept=".csv" placeholder="choose a file" />
                 </label>
             </div>
 

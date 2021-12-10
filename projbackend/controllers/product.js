@@ -2,6 +2,8 @@ import Product from '../models/product.js';
 import formidable from 'formidable';
 import _ from 'lodash';
 import fs from 'fs';
+import json2csv from "json2csv";
+import csv from "fast-csv";
 
 //middlewares
 export function getProductById(req, res, next, id) {
@@ -97,8 +99,38 @@ export function createProduct(req, res) {
     });
 }
 
-export function uploadCSVProduct(req, res) {
+export function getCSVProducts(req, res) {
+    var fields = Object.keys(Product.schema.obj);
+    var csv = json2csv({ data: "", fields: fields });
 
+    res.set("Content-Disposition", "attachment;filename=products.csv");
+    res.set("Content-Type", "application/octet-stream");
+
+    res.send(csv);
+
+}
+
+export function uploadCSVProduct(req, res) {
+    if (!req.files)
+        return res.status(400).send('No files were uploaded.');
+
+    var ProductFile = req.files.file;
+
+    var Products = [];
+
+    csv.fromString(ProductFile.data.toString(), {
+        headers: true,
+        ignoreEmpty: true
+    }).on("data", function (data) {
+        data['_id'] = new mongoose.Types.ObjectId();
+        Products.push(data);
+    }).on("end", function () {
+        Product.create(Products, function (err, documents) {
+            if (err) throw err;
+        });
+
+        res.send(Products.length + ' Products have been successfully uploaded.');
+    });
 }
 
 export function updateProduct(req, res) {

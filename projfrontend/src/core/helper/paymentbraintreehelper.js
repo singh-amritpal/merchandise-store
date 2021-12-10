@@ -1,12 +1,12 @@
 import { API } from "../../backend";
 
-export const getBToken = (userId, token) => {
+export const getBToken = (userId, authToken) => {
     return fetch(`${API}/payment/gettoken/${userId}`, {
         method: "GET",
         headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${authToken}`
         }
     }).then(response => {
         return response.json()

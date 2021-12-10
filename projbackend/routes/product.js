@@ -2,7 +2,7 @@ import { Router } from 'express';
 import { check } from "express-validator";
 import { getUserById } from '../controllers/user.js';
 import { isSignedIn, isAuthenticated, isAdmin } from '../controllers/authentication.js'
-import { getProductById, createProduct, uploadCSVProduct, getProduct, photo, removeProduct, updateProduct, getAllProducts, getAllUniqueCategories } from '../controllers/product.js'
+import { getProductById, createProduct, uploadCSVProduct, getProduct, photo, removeProduct, updateProduct, getAllProducts, getAllUniqueCategories, getCSVProducts } from '../controllers/product.js'
 
 var router = Router();
 
@@ -19,13 +19,8 @@ router.post("/product/create/:userId", isSignedIn, isAuthenticated, isAdmin, [
     check("availableUnits", "Unit availability is required").notEmpty()
 ], createProduct);
 
-router.post("/product/upload/:userId", isSignedIn, isAuthenticated, isAdmin, [
-    check("name", "Name is required!").notEmpty(),
-    check("description", "Product description is required!").notEmpty(),
-    check("price", "Price is required!").notEmpty(),
-    check("category", "Product category is required!").notEmpty(),
-    check("availableUnits", "Unit availability is required").notEmpty()
-], uploadCSVProduct);
+router.get("/product/upload/:userId", isSignedIn, isAuthenticated, isAdmin, getCSVProducts);
+router.post("/product/upload/:userId", isSignedIn, isAuthenticated, isAdmin, uploadCSVProduct);
 
 router.get("/product/:productId", getProduct);
 router.get("/product/photo/:productId", photo);

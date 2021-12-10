@@ -16,10 +16,10 @@ const BraintreeCheckout = ({ products, setReload = f => f, reload = undefined })
     });
 
     const userId = isAuthenticated() && isAuthenticated().userId;
-    const token = isAuthenticated() && isAuthenticated().authToken;
+    const authToken = isAuthenticated() && isAuthenticated().authToken;
 
-    const getToken = (userId, token) => {
-        getBToken(userId, token).then(info => {
+    const getToken = (userId, authToken) => {
+        getBToken(userId, authToken).then(info => {
             console.log("INFORMATION", info);
             if (info?.error) {
                 setInfo({ ...info, error: info.error });
@@ -51,7 +51,7 @@ const BraintreeCheckout = ({ products, setReload = f => f, reload = undefined })
     };
 
     useEffect(() => {
-        getToken(userId, token);
+        getToken(userId, authToken);
     }, []);
 
     const onPurchase = () => {
@@ -63,7 +63,7 @@ const BraintreeCheckout = ({ products, setReload = f => f, reload = undefined })
                 paymentMethodNonce: nonce,
                 amount: getAmount()
             };
-            processPayment(userId, token, paymentData)
+            processPayment(userId, authToken, paymentData)
                 .then(response => {
                     setInfo({ ...info, success: response.success, loading: false });
                     console.log("PAYMENT SUCCESSFUL");
