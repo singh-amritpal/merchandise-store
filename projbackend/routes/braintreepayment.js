@@ -7,9 +7,8 @@ import { getToken, processPayment } from '../controllers/braintreepayment.js';
 
 var router = Router();
 
-
 //routes
-router.get("/payment/gettoken/:userUd", isSignedIn, isAuthenticated, getToken);
+router.get("/payment/gettoken/:userId", isSignedIn, isAuthenticated, getToken);
 router.post("/payment/braintree/:userId", isSignedIn, isAuthenticated, processPayment);
 
 export default router;
