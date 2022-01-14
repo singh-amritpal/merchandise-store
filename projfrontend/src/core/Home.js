@@ -28,7 +28,7 @@ const Home = () => {
     return (
         <Base title="Home Page" description="Welcome to the Merchandise Store" className="container bg-white p-4">
             <div className="row text-center">
-                <h1 className="text-white">All Products</h1>
+                <h1 className="text-dark">All Products</h1>
                 <div className="row card-div">
                     {
                         products.map((product, index) => {

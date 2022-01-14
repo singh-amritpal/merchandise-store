@@ -54,9 +54,9 @@ const ManageCategories = () => {
                                             <h5 className="card-title">{category.name}</h5>
                                         </div>
                                         <div className="card-body">
-                                            <Link to={`/admin/category/update/${category._id}`} className="btn btn-outline-primary card-link">
+                                            {/* <Link to={`/admin/category/update/${category._id}`} className="btn btn-outline-primary card-link">
                                                 Update
-                                            </Link>
+                                            </Link> */}
 
                                             <Link to="/admin/categories" onClick={() => {
                                                 deleteACategory(category._id)

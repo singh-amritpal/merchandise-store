@@ -18,13 +18,14 @@ const UploadCSVProducts = () => {
         categories: [],
         category: "",
         loading: false,
+        success: false,
         error: "",
         createdProduct: "",
         getARedirect: false,
         formData: ""
     })
 
-    const { name, description, price, availableUnits, categories, category, loading, error, createdProduct, getARedirect, formData } = values;
+    const { name, description, price, availableUnits, categories, category, loading, success, error, createdProduct, getARedirect, formData } = values;
 
     const goBack = () => (
         <div className="mt-3">
@@ -34,7 +35,7 @@ const UploadCSVProducts = () => {
 
     const onSubmit = event => {
         event.preventDefault();
-        setValues({ ...values, error: "", loading: true });
+        setValues({ ...values, success: false, error: "", loading: true });
 
         //backend request fired
         uploadCSVProducts(user._id, authToken, formData)
@@ -44,11 +45,7 @@ const UploadCSVProducts = () => {
                 } else {
                     setValues({
                         ...values,
-                        name: "",
-                        description: "",
-                        price: "",
-                        photo: "",
-                        availableUnits: "",
+                        success: true,
                         loading: false
                     });
                 }
@@ -65,7 +62,7 @@ const UploadCSVProducts = () => {
         return (
             <div className="row" >
                 <div className="col-md-6 offset-sm-3 text-center mt-3">
-                    <div className="alert alert-success" role="alert" style={{ display: createdProduct ? "" : "none" }}>
+                    <div className="alert alert-success" role="alert" style={{ display: success ? "" : "none" }}>
                         File uploaded successfully
                     </div>
                 </div>
@@ -100,7 +97,7 @@ const UploadCSVProducts = () => {
     );
 
     return (
-        <Base title="Add a New Product" description="Add a new product here" className="container bg-white p-4">
+        <Base title="Upload Products" description="Upload Products using CSV" className="container bg-white p-4">
             {goBack()}
             <div className="row bg-dark text-white rounded">
                 <div className="col-md-8 offset-md-2">

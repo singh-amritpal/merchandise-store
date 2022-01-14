@@ -19,7 +19,7 @@ router.post("/product/create/:userId", isSignedIn, isAuthenticated, isAdmin, [
     check("availableUnits", "Unit availability is required").notEmpty()
 ], createProduct);
 
-router.get("/product/upload/:userId", isSignedIn, isAuthenticated, isAdmin, getCSVProducts);
+//router.get("/product/upload/:userId", isSignedIn, isAuthenticated, isAdmin, getCSVProducts);
 router.post("/product/upload/:userId", isSignedIn, isAuthenticated, isAdmin, uploadCSVProduct);
 
 router.get("/product/:productId", getProduct);
